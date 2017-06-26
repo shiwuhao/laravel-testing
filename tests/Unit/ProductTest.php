@@ -19,7 +19,7 @@ class ProductTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function AProductHasAName()
+    public function a_product_has_a_name()
     {
         $product = new Product('iPhone 7', 6000);
 
@@ -29,12 +29,22 @@ class ProductTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function AProductHasAPrice()
+    public function a_product_has_a_price()
     {
         $product = new Product('MacBook', 10000);
 
         $this->assertEquals(10000, $product->price());
     }
 
+    /**
+     * @test
+     */
+    public function a_product_can_be_sold_with_discount()
+    {
+        $product = new Product('Macbook', 10000);
 
+        $product->setDiscount(8);
+
+        $this->assertEquals(8000, $product->price());
+    }
 }
